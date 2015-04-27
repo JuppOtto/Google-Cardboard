@@ -1,4 +1,4 @@
-﻿// This script moves your player automatically in the direction he is looking at. You can 
+// This script moves your player automatically in the direction he is looking at. You can 
 // activate the autowalk function by pull the cardboard trigger, by define a threshold angle 
 // or combine both by selecting both of these options.
 // The threshold is an value in degree between 0° and 90°. So for example the threshold is 
@@ -46,7 +46,6 @@ public class Autowalk : MonoBehaviour
 		head = Camera.main.GetComponent<StereoController>().Head;
 	}
 	
-	
 	void Update () 
 	{
 		// Walk when the Cardboard Trigger is used 
@@ -88,10 +87,12 @@ public class Autowalk : MonoBehaviour
 		{
 			isWalking = false;
 		}
-		
+
 		if (isWalking) 
 		{
-			transform.Translate(new Vector3(head.transform.forward.x,0,head.transform.forward.z) * speed * Time.deltaTime);
+			Vector3 direction = new Vector3(head.transform.forward.x, 0, head.transform.forward.z).normalized * speed * Time.deltaTime;
+			Quaternion rotation = Quaternion.Euler(new Vector3(0, -transform.rotation.eulerAngles.y, 0));
+			transform.Translate(rotation * direction);
 		}
 		
 		if(freezeYPosition)
