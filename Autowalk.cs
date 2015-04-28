@@ -10,7 +10,6 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(CardboardHead))]
 public class Autowalk : MonoBehaviour 
 {
 	private const int RIGHT_ANGLE = 90; 
