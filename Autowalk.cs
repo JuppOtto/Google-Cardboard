@@ -66,7 +66,7 @@ public class Autowalk : MonoBehaviour
 		} 
 		else if (walkWhenLookDown && !walkWhenTriggered && isWalking && 
 		         (head.transform.eulerAngles.x <= thresholdAngle ||
-		 head.transform.eulerAngles.x >= RIGHT_ANGLE)) 
+		         head.transform.eulerAngles.x >= RIGHT_ANGLE)) 
 		{
 			isWalking = false;
 		}
@@ -81,8 +81,8 @@ public class Autowalk : MonoBehaviour
 		} 
 		else if (walkWhenLookDown && walkWhenTriggered && isWalking && 
 		         head.transform.eulerAngles.x >= thresholdAngle &&
-		         (Cardboard.SDK.Triggered ||
-		 head.transform.eulerAngles.x >= RIGHT_ANGLE)) 
+		         (Cardboard.SDK.Triggered || 
+		         head.transform.eulerAngles.x >= RIGHT_ANGLE)) 
 		{
 			isWalking = false;
 		}
