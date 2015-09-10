@@ -48,11 +48,11 @@ public class Autowalk : MonoBehaviour
 	void Update () 
 	{
 		// Walk when the Cardboard Trigger is used 
-		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.CardboardTriggered) 
+		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered) 
 		{
 			isWalking = true;
 		} 
-		else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.CardboardTriggered) 
+		else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.Triggered) 
 		{
 			isWalking = false;
 		}
@@ -74,14 +74,14 @@ public class Autowalk : MonoBehaviour
 		// Walk when the Cardboard trigger is used and the player looks down below the threshold angle
 		if (walkWhenLookDown && walkWhenTriggered && !isWalking &&  
 		    head.transform.eulerAngles.x >= thresholdAngle && 
-		    Cardboard.SDK.CardboardTriggered &&
+		    Cardboard.SDK.Triggered &&
 		    head.transform.eulerAngles.x <= RIGHT_ANGLE) 
 		{
 			isWalking = true;
 		} 
 		else if (walkWhenLookDown && walkWhenTriggered && isWalking && 
 		         head.transform.eulerAngles.x >= thresholdAngle &&
-		         (Cardboard.SDK.CardboardTriggered ||
+		         (Cardboard.SDK.Triggered ||
 		         head.transform.eulerAngles.x >= RIGHT_ANGLE)) 
 		{
 			isWalking = false;
